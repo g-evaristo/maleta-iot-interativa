@@ -14,7 +14,6 @@ A aplicação permite que estudantes consultem os componentes armazenados em cad
 - Tabela completa de componentes
 - Pesquisa por nome, categoria ou número do compartimento
 - Layout responsivo para computadores, tablets e celulares
-- Navegação por teclado nos compartimentos vetoriais
 
 ## Tecnologias utilizadas
 
@@ -33,6 +32,8 @@ maleta-iot/
 ├── style.css
 ├── script.js
 └── README.md
+```
+
 ---
 
 Autor: Professor Gabriel
