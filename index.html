@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maleta IoT Interativa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <span class="eyebrow">ITCOI - Internet das Coisas</span>
+      <br>
+      <span class="eyebrow">Profº Gabriel</span>
+      <h1>Maleta IoT Interativa</h1>
+      <p>Clique em um compartimento para consultar os componentes armazenados.</p>
+    </div>
+    <button id="viewToggle" class="secondary-button" type="button">Exibir foto original</button>
+  </header>
+
+  <main>
+    <section class="workspace" aria-label="Mapa interativo da maleta">
+      <div class="case-frame">
+        <div id="vectorView" class="view active-view">
+          <svg id="caseMap" viewBox="0 0 1200 820" role="img" aria-label="Representação vetorial horizontal dos compartimentos da maleta IoT">
+            <defs>
+              <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity="0.18"/>
+              </filter>
+              <linearGradient id="caseGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#f8fafc"/>
+                <stop offset="100%" stop-color="#dfe7ef"/>
+              </linearGradient>
+            </defs>
+            <rect x="20" y="20" width="1160" height="780" rx="34" class="case-shell" filter="url(#shadow)"/>
+            <rect x="40" y="40" width="1120" height="740" rx="22" class="case-inner"/>
+
+            <g class="compartment" data-id="1" tabindex="0" role="button"><rect x="50" y="55" width="335" height="300" rx="10"/><text x="217.5" y="150" class="icon-text">JUMPERS</text><text x="217.5" y="175" class="icon-text small">(macho - macho)</text><text x="217.5" y="240" class="icon-text">CABO USB</text><text x="217.5" y="300" class="icon-text">RESISTORES</text><text x="65" y="335" class="number">1</text></g>
+            <g class="compartment" data-id="2" tabindex="0" role="button"><rect x="400" y="55" width="735" height="195" rx="10"/><text x="767.5" y="135" class="icon-text">RFID • ARDUINO MEGA</text><text x="767.5" y="180" class="icon-text">PROTOBOARD • JUMPERS (macho - fêmea)</text><text x="415" y="230" class="number">2</text></g>
+            <g class="compartment" data-id="3" tabindex="0" role="button"><rect x="50" y="370" width="162" height="160" rx="10"/><text x="131" y="435" class="icon-text">Diversos</text><text x="65" y="510" class="number">3</text></g>
+            <g class="compartment" data-id="4" tabindex="0" role="button"><rect x="223" y="370" width="162" height="160" rx="10"/><text x="304" y="435" class="icon-text">LEDs</text><text x="238" y="510" class="number">4</text></g>
+            <g class="compartment" data-id="5" tabindex="0" role="button"><rect x="50" y="545" width="162" height="165" rx="10"/><text x="131" y="625" class="icon-text">GPS</text><text x="65" y="690" class="number">5</text></g>
+            <g class="compartment" data-id="6" tabindex="0" role="button"><rect x="223" y="545" width="162" height="165" rx="10"/><text x="304" y="625" class="icon-text small">CAPACITORES</text><text x="238" y="690" class="number">6</text></g>
+            <g class="compartment" data-id="7" tabindex="0" role="button"><rect x="400" y="265" width="135" height="220" rx="10"/><rect x="425" y="315" width="85" height="115" rx="8" class="board"/><text x="467.5" y="380" class="icon-text inverted small">ESP32</text><text x="415" y="465" class="number">7</text></g>
+            <g class="compartment" data-id="8" tabindex="0" role="button"><rect x="550" y="265" width="135" height="220" rx="10"/><rect x="572.5" y="335" width="90" height="65" rx="6" class="relay"/><text x="617.5" y="374" class="icon-text inverted small">RELÉ</text><text x="565" y="465" class="number">8</text></g>
+            <g class="compartment" data-id="9" tabindex="0" role="button"><rect x="700" y="265" width="135" height="220" rx="10"/><circle cx="767.5" cy="365" r="45" class="motor"/><text x="767.5" y="370" class="icon-text small">MOTORES</text><text x="715" y="465" class="number">9</text></g>
+            <g class="compartment" data-id="10" tabindex="0" role="button"><rect x="850" y="265" width="135" height="220" rx="10"/><text x="917.5" y="355" class="icon-text small">COR</text><text x="917.5" y="380" class="icon-text small">LUMINOSIDADE</text><text x="865" y="465" class="number">10</text></g>
+            <g class="compartment" data-id="11" tabindex="0" role="button"><rect x="1000" y="265" width="135" height="220" rx="10"/><rect x="1032.5" y="325" width="70" height="100" rx="6" class="module dark"/><text x="1067.5" y="380" class="icon-text inverted small">ESP-CAM</text><text x="1015" y="465" class="number">11</text></g>
+            <g class="compartment" data-id="12" tabindex="0" role="button"><rect x="400" y="500" width="135" height="210" rx="10"/><circle cx="442" cy="585" r="25" class="sensor-eye"/><circle cx="495" cy="585" r="25" class="sensor-eye"/><text x="467.5" y="645" class="icon-text small">HC-SR04</text><text x="415" y="690" class="number">12</text></g>
+            <g class="compartment" data-id="13" tabindex="0" role="button"><rect x="550" y="500" width="135" height="210" rx="10"/><rect x="582.5" y="555" width="70" height="75" rx="6" class="dht"/><text x="617.5" y="600" class="icon-text inverted small">DHT11</text><text x="565" y="690" class="number">13</text></g>
+            <g class="compartment" data-id="14" tabindex="0" role="button"><rect x="700" y="500" width="135" height="210" rx="10"/><path d="M740 550 V645 M767.5 550 V645 M795 550 V645" class="water-lines"/><text x="767.5" y="670" class="icon-text small">SOLO</text><text x="715" y="690" class="number">14</text></g>
+            <g class="compartment" data-id="15" tabindex="0" role="button"><rect x="850" y="500" width="135" height="210" rx="10"/><rect x="887.5" y="560" width="60" height="70" rx="6" class="module"/><text x="917.5" y="655" class="icon-text small">BATIMENTOS</text><text x="865" y="690" class="number">15</text></g>
+            <g class="compartment" data-id="16" tabindex="0" role="button"><rect x="1000" y="500" width="135" height="210" rx="10"/><path d="M1022.5 540 H1112.5 V665 H1022.5 Z" class="rain-plate"/><path d="M1037.5 555 V650 M1057.5 555 V650 M1077.5 555 V650 M1097.5 555 V650" class="rain-lines"/><text x="1015" y="690" class="number">16</text></g>
+          </svg>
+        </div>
+
+        <div id="photoView" class="view">
+          <img src="assets/maleta-original.jpeg" alt="Fotografia da maleta IoT">
+          <div id="photoHotspots" aria-label="Áreas clicáveis sobre a fotografia"></div>
+        </div>
+      </div>
+
+      <aside id="detailsPanel" class="details-panel" aria-live="polite">
+        <span class="panel-label">Compartimento selecionado</span>
+        <h2 id="detailTitle">Selecione um compartimento</h2>
+        <p id="detailDescription">Os componentes aparecerão aqui.</p>
+        <ul id="componentList"></ul>
+      </aside>
+    </section>
+
+    <section class="catalog">
+      <div class="section-heading">
+        <div><span class="eyebrow">Inventário</span><h2>Componentes por compartimento</h2></div>
+        <input id="searchInput" type="search" placeholder="Pesquisar componente..." aria-label="Pesquisar componente">
+      </div>
+      <div class="table-wrapper">
+        <table><thead><tr><th>Compartimento</th><th>Componente</th><th>Categoria</th></tr></thead><tbody id="inventoryBody"></tbody></table>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
