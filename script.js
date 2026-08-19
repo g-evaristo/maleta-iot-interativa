@@ -1,66 +1,103 @@
+const imageModal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+const modalImageTitle = document.getElementById("modalImageTitle");
+const closeImageModal = document.getElementById("closeImageModal");
+
 const compartments = [
-  { id: 1, title: "Conexões e resistores", description: "Itens básicos para montagem e ligação dos circuitos.", components: [
-    { name: "Jumpers (macho - macho)", category: "Conexão" },
-    { name: "Cabo de conexão Arduino", category: "Alimentação e dados" },
-    { name: "Resistores", category: "Eletrônica" }
-  ]},
-  { id: 2, title: "Prototipagem e identificação", description: "Placas e acessórios principais para prototipagem.", components: [
-    { name: "Módulo RFID", category: "Identificação" },
-    { name: "Jumpers (macho -fêmea)", category: "Conexão" },
-    { name: "Arduino Mega 2560", category: "Microcontrolador" },
-    { name: "Protoboard", category: "Prototipagem" }
-  ]},
-  { id: 3, title: "Controles e sinalização", description: "Componentes para entradas manuais e sinalização sonora.", components: [
-    { name: "Potenciômetros", category: "Entrada" },
-    { name: "Buzzer", category: "Atuador" },
-    { name: "Botões", category: "Entrada" }
-  ]},
-  { id: 4, title: "LEDs", description: "Conjunto de LEDs para sinalização visual.", components: [
-    { name: "4 LEDs vermelhos", category: "Atuador" },
-    { name: "4 LEDs verdes", category: "Atuador" },
-    { name: "4 LEDs amarelos", category: "Atuador" }
-  ]},
-  { id: 5, title: "Localização", description: "Módulo usado para obtenção de coordenadas geográficas.", components: [
-    { name: "Módulo GPS", category: "Comunicação e localização" }
-  ]},
-  { id: 6, title: "Capacitores", description: "Componentes passivos para filtragem, temporização e armazenamento de carga.", components: [
-    { name: "Capacitores", category: "Eletrônica" }
-  ]},
-  { id: 7, title: "ESP32", description: "Placa microcontroladora com conectividade Wi-Fi e Bluetooth.", components: [
-    { name: "ESP32", category: "Microcontrolador" }
-  ]},
-  { id: 8, title: "Acionamento elétrico", description: "Módulo destinado ao controle de cargas externas.", components: [
-    { name: "Módulo relé", category: "Atuador" }
-  ]},
-  { id: 9, title: "Movimento", description: "Atuadores utilizados para movimento rotacional e posicionamento.", components: [
-    { name: "Motor", category: "Atuador" },
-    { name: "Servomotor", category: "Atuador" }
-  ]},
-  { id: 10, title: "Cor e luminosidade", description: "Sensores ópticos para identificar cores e intensidade de luz.", components: [
-    { name: "Sensor de cores", category: "Sensor óptico" },
-    { name: "Sensor de luminosidade", category: "Sensor óptico" }
-  ]},
-  { id: 11, title: "Visão embarcada", description: "Módulo ESP com câmera integrada.", components: [
-    { name: "ESP-CAM", category: "Microcontrolador e câmera" }
-  ]},
-  { id: 12, title: "Distância", description: "Sensor ultrassônico para medição de distância.", components: [
-    { name: "HC-SR04", category: "Sensor de distância" }
-  ]},
-  { id: 13, title: "Temperatura e umidade", description: "Sensor digital para condições ambientais.", components: [
-    { name: "DHT11", category: "Sensor ambiental" }
-  ]},
-  { id: 14, title: "Umidade do solo", description: "Sensor usado para verificar a umidade presente no solo.", components: [
-    { name: "Sensor de umidade do solo", category: "Sensor ambiental" }
-  ]},
-  { id: 15, title: "Sensores Gerais", description: "Sensores de diferentes tipos.", components: [
-    { name: "Sensor de batimentos cardíacos", category: "Sensor biométrico" },
-    { name: "MQ-135", category: "Sensor para detectar a qualidade do ar e medir gases como amônia, benzeno, álcool, fumaça e dióxido de carbono (CO₂)." },
-    { name: "GY-521", category: "Sensor acelerômetro de 3 eixos e um giroscópio de 3 eixos (totalizando 6 graus de liberdade). Mede aceleração e velocidade de rotação." },
-    { name: "Sensor PIR (Infravermelho Passivo)", category: "Sensor que identifica o movimento de pessoas ou animais ao medir as mudanças na radiação de calor do ambiente." }
-  ]},
-  { id: 16, title: "Detecção de chuva", description: "Sensor usado para detectar gotas e presença de água.", components: [
-    { name: "Sensor de chuva", category: "Sensor ambiental" }
-  ]}
+  {
+    id: 1, title: "Conexões e resistores", description: "Itens básicos para montagem e ligação dos circuitos.", components: [
+      { name: "Jumpers (macho - macho)", category: "Conexão", image: "assets/componentes/jumper_macho_macho.webp" },
+      { name: "Cabo de conexão Arduino", category: "Alimentação e dados", image: "assets/componentes/conexao_arduino.webp" },
+      { name: "Resistores", category: "Eletrônica", image: "assets/componentes/resistores.png" }
+    ]
+  },
+  {
+    id: 2, title: "Prototipagem e identificação", description: "Placas e acessórios principais para prototipagem.", components: [
+      { name: "Módulo RFID", category: "Identificação", image: "assets/componentes/rfid.png" },
+      { name: "Jumpers (macho -fêmea)", category: "Conexão", image: "assets/componentes/jumper_macho_femea.webp" },
+      { name: "Arduino Mega 2560", category: "Microcontrolador", image: "assets/componentes/arduino.jpg" },
+      { name: "Protoboard", category: "Prototipagem", image: "assets/componentes/protoboard.webp" }
+    ]
+  },
+  {
+    id: 3, title: "Controles e sinalização", description: "Componentes para entradas manuais e sinalização sonora.", components: [
+      { name: "Potenciômetros", category: "Entrada", image: "assets/componentes/potenciometro.webp" },
+      { name: "Buzzer", category: "Atuador", image: "assets/componentes/buzzer.webp" },
+      { name: "Botões", category: "Entrada", image: "assets/componentes/botao.jpg" }
+    ]
+  },
+  {
+    id: 4, title: "LEDs", description: "Conjunto de LEDs para sinalização visual.", components: [
+      { name: "4 LEDs vermelhos", category: "Atuador", image: "assets/componentes/led_vermelho.webp" },
+      { name: "4 LEDs verdes", category: "Atuador", image: "assets/componentes/led_verde.webp" },
+      { name: "4 LEDs amarelos", category: "Atuador", image: "assets/componentes/led_amarelo.webp" }
+    ]
+  },
+  {
+    id: 5, title: "Localização", description: "Módulo usado para obtenção de coordenadas geográficas.", components: [
+      { name: "Módulo GPS", category: "Comunicação e localização", image: "assets/componentes/gps.webp" }
+    ]
+  },
+  {
+    id: 6, title: "Capacitores", description: "Componentes passivos para filtragem, temporização e armazenamento de carga.", components: [
+      { name: "Capacitores", category: "Eletrônica", image: "assets/componentes/capacitores.webp" }
+    ]
+  },
+  {
+    id: 7, title: "ESP32", description: "Placa microcontroladora com conectividade Wi-Fi e Bluetooth.", components: [
+      { name: "ESP32", category: "Microcontrolador", image: "assets/componentes/esp32.webp" }
+    ]
+  },
+  {
+    id: 8, title: "Acionamento elétrico", description: "Módulo destinado ao controle de cargas externas.", components: [
+      { name: "Módulo relé", category: "Atuador", image: "assets/componentes/rele.webp" }
+    ]
+  },
+  {
+    id: 9, title: "Movimento", description: "Atuadores utilizados para movimento rotacional e posicionamento.", components: [
+      { name: "Motor de Passo", category: "Atuador", image: "assets/componentes/motor_passo.webp" },
+      { name: "Servomotor", category: "Atuador", image: "assets/componentes/servo_motor.jpg" }
+    ]
+  },
+  {
+    id: 10, title: "Cor e luminosidade", description: "Sensores ópticos para identificar cores e intensidade de luz.", components: [
+      { name: "Sensor de cores", category: "Sensor óptico", image: "assets/componentes/sensor_cores.jpg" },
+      { name: "Sensor de luminosidade", category: "Sensor óptico", image: "assets/componentes/luminosidade.webp" }
+    ]
+  },
+  {
+    id: 11, title: "Visão embarcada", description: "Módulo ESP com câmera integrada.", components: [
+      { name: "ESP-CAM", category: "Microcontrolador e câmera", image: "assets/componentes/espcam.jpg" }
+    ]
+  },
+  {
+    id: 12, title: "Distância", description: "Sensor ultrassônico para medição de distância.", components: [
+      { name: "HC-SR04", category: "Sensor de distância", image: "assets/componentes/hcsr04.jpeg" }
+    ]
+  },
+  {
+    id: 13, title: "Temperatura e umidade", description: "Sensor digital para condições ambientais.", components: [
+      { name: "DHT11", category: "Sensor ambiental", image: "assets/componentes/dht11.webp" }
+    ]
+  },
+  {
+    id: 14, title: "Umidade do solo", description: "Sensor usado para verificar a umidade presente no solo.", components: [
+      { name: "Sensor de umidade do solo", category: "Sensor ambiental", image: "assets/componentes/umidade_solo.webp" }
+    ]
+  },
+  {
+    id: 15, title: "Sensores Gerais", description: "Sensores de diferentes tipos.", components: [
+      { name: "Sensor de batimentos cardíacos", category: "Sensor biométrico", image: "assets/componentes/cardiaco.jpg" },
+      { name: "MQ-135", category: "Sensor para detectar a qualidade do ar e medir gases como amônia, benzeno, álcool, fumaça e dióxido de carbono (CO₂).", image: "assets/componentes/mq135.webp" },
+      { name: "GY-521", category: "Sensor acelerômetro de 3 eixos e um giroscópio de 3 eixos (totalizando 6 graus de liberdade). Mede aceleração e velocidade de rotação.", image: "assets/componentes/gy521.webp" },
+      { name: "Sensor PIR (Infravermelho Passivo)", category: "Sensor que identifica o movimento de pessoas ou animais ao medir as mudanças na radiação de calor do ambiente.", image: "assets/componentes/PIR.png" }
+    ]
+  },
+  {
+    id: 16, title: "Detecção de chuva", description: "Sensor usado para detectar gotas e presença de água.", components: [
+      { name: "Sensor de chuva", category: "Sensor ambiental", image: "assets/componentes/chuva.jpeg" }
+    ]
+  }
 ];
 
 const hotspotPositions = {
@@ -105,12 +142,65 @@ function selectCompartment(id) {
 
 function renderTable(query = "") {
   const normalizedQuery = query.trim().toLowerCase();
-  const rows = compartments.flatMap(compartment => compartment.components.map(component => ({ id: compartment.id, name: component.name, category: component.category }))).filter(item => !normalizedQuery || item.name.toLowerCase().includes(normalizedQuery) || item.category.toLowerCase().includes(normalizedQuery) || String(item.id).includes(normalizedQuery));
-  inventoryBody.innerHTML = rows.map(item => `<tr data-id="${item.id}"><td><span class="compartment-pill">${item.id}</span></td><td>${item.name}</td><td>${item.category}</td></tr>`).join("");
-  inventoryBody.querySelectorAll("tr").forEach(row => row.addEventListener("click", () => {
-    selectCompartment(row.dataset.id);
-    document.querySelector(".workspace").scrollIntoView({ behavior: "smooth", block: "start" });
-  }));
+
+  const rows = compartments
+    .flatMap(compartment =>
+      compartment.components.map(component => ({
+        id: compartment.id,
+        name: component.name,
+        category: component.category,
+        image: component.image
+      }))
+    )
+    .filter(item =>
+      !normalizedQuery ||
+      item.name.toLowerCase().includes(normalizedQuery) ||
+      item.category.toLowerCase().includes(normalizedQuery) ||
+      String(item.id).includes(normalizedQuery)
+    );
+
+  inventoryBody.innerHTML = rows.map(item => `
+  <tr data-id="${item.id}">
+    <td>
+      <span class="compartment-pill">${item.id}</span>
+    </td>
+
+    <td class="image-cell">
+      <img
+        src="${item.image}"
+        alt="${item.name}"
+        class="component-image"
+        data-name="${item.name}"
+      >
+    </td>
+
+    <td>${item.name}</td>
+    <td>${item.category}</td>
+  </tr>
+`).join("");
+
+  inventoryBody.querySelectorAll(".component-image").forEach(image => {
+    image.addEventListener("click", event => {
+      event.stopPropagation();
+
+      modalImage.src = image.src;
+      modalImage.alt = image.alt;
+      modalImageTitle.textContent = image.dataset.name;
+
+      imageModal.classList.add("active");
+    });
+  });
+
+  inventoryBody.querySelectorAll("tr").forEach(row => {
+    row.addEventListener("click", () => {
+      selectCompartment(row.dataset.id);
+
+      document.querySelector(".workspace").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
+  });
 }
 
 function createPhotoHotspots() {
@@ -154,3 +244,22 @@ viewToggle.addEventListener("click", () => {
 createPhotoHotspots();
 renderTable();
 selectCompartment(1);
+
+function closeModal() {
+  imageModal.classList.remove("active");
+  modalImage.src = "";
+}
+
+closeImageModal.addEventListener("click", closeModal);
+
+imageModal.addEventListener("click", event => {
+  if (event.target === imageModal) {
+    closeModal();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    closeModal();
+  }
+});
