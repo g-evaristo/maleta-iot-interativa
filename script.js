@@ -52,8 +52,11 @@ const compartments = [
   { id: 14, title: "Umidade do solo", description: "Sensor usado para verificar a umidade presente no solo.", components: [
     { name: "Sensor de umidade do solo", category: "Sensor ambiental" }
   ]},
-  { id: 15, title: "Batimentos cardíacos", description: "Sensor óptico para leitura de pulso e frequência cardíaca.", components: [
-    { name: "Sensor de batimentos cardíacos", category: "Sensor biométrico" }
+  { id: 15, title: "Sensores Gerais", description: "Sensores de diferentes tipos.", components: [
+    { name: "Sensor de batimentos cardíacos", category: "Sensor biométrico" },
+    { name: "MQ-135", category: "Sensor para detectar a qualidade do ar e medir gases como amônia, benzeno, álcool, fumaça e dióxido de carbono (CO₂)." },
+    { name: "GY-521", category: "Sensor acelerômetro de 3 eixos e um giroscópio de 3 eixos (totalizando 6 graus de liberdade). Mede aceleração e velocidade de rotação." },
+    { name: "Sensor PIR (Infravermelho Passivo)", category: "Sensor que identifica o movimento de pessoas ou animais ao medir as mudanças na radiação de calor do ambiente." }
   ]},
   { id: 16, title: "Detecção de chuva", description: "Sensor usado para detectar gotas e presença de água.", components: [
     { name: "Sensor de chuva", category: "Sensor ambiental" }
